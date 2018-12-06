@@ -257,7 +257,7 @@ def generate_ssh_keys(username):
         error(error_msg)
 
     new_key = RSA.generate(2048)
-    public_key = new_key.publickey().exportKey("OpenSSH")
+    public_key = new_key.publickey().exportKey(b"OpenSSH")
     private_key = new_key.exportKey("PEM")
 
     if not os.path.exists(SSH_DIR):
